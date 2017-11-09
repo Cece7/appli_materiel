@@ -101,5 +101,37 @@ function reset(){
 }
             
 </script>
+
+
+<script src="jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $(".case").click(function(){
+        
+        
+        
+        $.post(
+            'calendrier.php',
+            {
+                marque: "mercedes",
+                nombre: 3 
+            },
+          function(data, status)
+          {
+            console.log(data);
+          }
+
+        );
+
+    });
+
+});
+
+
+</script>
+
+
 </body>
 </html>
