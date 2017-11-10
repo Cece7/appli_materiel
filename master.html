@@ -17,6 +17,7 @@
         <input type="button" name="resetmonth" id="resetmonth" value="reset" onclick="reset()" >
     </div>
     <div id="calendrier" class="displaywrap"></div>
+    <div id="result"></div>
 </div>
 
 <script type="text/javascript">
@@ -109,21 +110,19 @@ function reset(){
 $(document).ready(function(){
 
     $(".case").click(function(){
-       
-        var day = $(this).value;
-        var month = today.getMonth();
-        var year = today.getFullYear();
         
         
         $.post(
             'calendrier.php',
             {
-                marque: "mercedes",
-                nombre: 3 
+                day: $(this).text(),
+                month: today.getMonth(),
+                year: today.getFullYear(),
             },
           function(data, status)
           {
             console.log(data);
+            $("#result").text(data);
           }
 
         );

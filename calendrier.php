@@ -1,3 +1,5 @@
-<?php 
-echo $_POST["marque"];
+<?php
+echo $_POST["day"];
+echo $_POST["month"];
+echo $_POST["year"];
 ?>
