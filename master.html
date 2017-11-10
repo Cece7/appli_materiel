@@ -109,7 +109,10 @@ function reset(){
 $(document).ready(function(){
 
     $(".case").click(function(){
-        
+       
+        var day = $(this).value;
+        var month = today.getMonth();
+        var year = today.getFullYear();
         
         
         $.post(
