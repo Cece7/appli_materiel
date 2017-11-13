@@ -14,6 +14,20 @@ catch (Exception $e)
 $reponse=$id_connex->query('SELECT reference FROM materiel');
 $ligne=$reponse->fetch(PDO::FETCH_ASSOC);
 var_dump($ligne);
+
+
+$nb_mat=$reponse->rowCount();
+if(nb_mat==0){
+	echo "Pas de matériel";
+}
+else{
+	while($ligne=$reponse->fetch(PDO::FETCH_ASSOC))
+	{
+		echo $ligne['reference'].'<br>';
+	}
+}
+
+
 $reponse->closeCursor();
 $id_connex=null;
 
