@@ -13,8 +13,6 @@ catch (Exception $e)
 }
 $reponse=$id_connex->query('SELECT reference FROM materiel');
 
-
-
 $nb_mat=$reponse->rowCount();
 if($nb_mat==0){
 	echo "Pas de matériel";
