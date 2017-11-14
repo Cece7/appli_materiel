@@ -109,15 +109,15 @@ function reset(){
 
 $(document).ready(function(){
 
-    $(".case").on("click",function(){
+    $(document).on("click",".case", function(){
         
         console.log("ok");
         $.post(
             'calendrier.php',
             {
                 day: $(this).text(),
-                month: today.getMonth(),
-                year: today.getFullYear(),
+                month: mmonth,
+                year: year,
             },
           function(data, status)
           {
