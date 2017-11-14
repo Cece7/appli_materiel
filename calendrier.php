@@ -12,8 +12,7 @@ catch (Exception $e)
 	die('Erreur : ' . $e->getMessage());
 }
 $reponse=$id_connex->query('SELECT reference FROM materiel');
-$ligne=$reponse->fetch(PDO::FETCH_ASSOC);
-var_dump($ligne);
+
 
 
 $nb_mat=$reponse->rowCount();
@@ -23,7 +22,7 @@ if($nb_mat==0){
 else{
 	while($ligne=$reponse->fetch(PDO::FETCH_ASSOC))
 	{
-		echo $ligne['reference'].'<br>';
+		echo $ligne['reference'];
 	}
 }
 
