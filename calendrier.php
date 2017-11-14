@@ -17,7 +17,7 @@ var_dump($ligne);
 
 
 $nb_mat=$reponse->rowCount();
-if(nb_mat==0){
+if($nb_mat==0){
 	echo "Pas de matériel";
 }
 else{
