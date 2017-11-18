@@ -1,0 +1,61 @@
+.displaywrap{
+        display: flex;
+        flex-wrap: wrap;
+        
+
+    }
+    .case{
+        width: 100%;
+        height: 45px;
+        padding: 20px;
+        background-color: lightgreen;
+        border: solid black 1px;
+        padding: 0.5%;
+
+       
+    }
+    .casei{
+        width: 0;
+        height: 0;
+        border: solid black 1px;
+        opacity: 0;
+        padding: 5%;
+        position: absolute;
+
+    }
+
+#container{
+        max-width: auto;
+        margin-left: 50px;
+        margin-right: 50px;
+}
+
+
+
+.casej{
+         
+        display: none;
+    }
+
+.casenj{
+   /* background-color: yellow;*/
+    width: 2%;
+    
+}
+
+.casem{
+        /*background-color: green;*/
+        width: 7%;
+        /*height: 50%;*/
+       margin-left: 2%;
+       
+         
+
+
+
+       
+        
+        
+      
+}
+
