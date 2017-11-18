@@ -1,11 +1,17 @@
+ body{
+    max-height: 100%;
+ }
+
+
  .displaywrap{
         display: flex;
         flex-wrap: wrap;
         margin: auto;
+        
     }
     .case{
         width: 13%;
-        height: 9%;
+        
         background-color: lightblue;
         border: solid black 1px;
         padding: 0.5%;
@@ -14,7 +20,7 @@
     
     .casei{
         width: 13%;
-        height: 9%;
+        
         border: solid black 1px;
         opacity: 0;
         padding: 0.5%;
@@ -23,7 +29,7 @@
 
     .casej{
         width: 13%;
-        height: 9%;
+       
         background-color: lightblue;
         border: solid black 1px;
         padding: 0.5%;
@@ -31,3 +37,11 @@
 
 
     }
+
+    .casem{
+        
+       display: none;
+      
+    }
+
+    
