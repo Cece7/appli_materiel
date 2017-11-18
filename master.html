@@ -57,13 +57,23 @@ function launch(){
     for(var $i=0; month==smonth; $i++){
             //Création de la div
             var e=document.createElement("div");
+            var d=document.createElement("div");
+            var f=document.createElement("div");
+        
                 e.setAttribute('class','case');
+                d.setAttribute('class','casenj');
+                f.setAttribute('class','casem');
+        
+                e.appendChild(d);
+                e.appendChild(f);
                 document.getElementById("calendrier").appendChild(e);
+        
             //On récupère les infos dans la date
             day = today.getDate();
             year= today.getFullYear();
             //attribution contenu
-            e.textContent = day;
+            d.textContent = day;
+            f.textContent = nomj;
             //incrémentation
             today.setDate(today.getDate()+1);
             //On récupère le mois
