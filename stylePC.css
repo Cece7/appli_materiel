@@ -34,14 +34,23 @@
         border: solid black 1px;
         padding: 0.5%;
         opacity: 1;
-        display: block;
 
 
     }
     .popup{
         background-color: lightblue;
-        border: solid black 1px;
+        border: solid black 5px;
         width: 600px;      
+        height: 400px;
+        margin-top: -150px;
+        margin-left: 200px; 
+        opacity: 0;
+        position: relative;
+    }
+        .popup-admin{
+        background-color: lightblue;
+        border: solid black 5px;
+        width: 700px;      
         height: 400px;
         margin-top: -150px;
         margin-left: 200px; 

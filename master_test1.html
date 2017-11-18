@@ -19,7 +19,14 @@
     <div id="calendrier" class="displaywrap"></div>
    
 </div>
-<div class="popup"><input type="button" name="fermer" value="fermer" class="fermer"> <div id="result"></div></div>
+<input type="button" name="Administration" id="admin" value="Administration">
+<div class="popup"><input type="button" name="fermer" value="fermer" id="fermer"> <div id="result"></div></div>
+<div class="popup-admin">
+
+
+    <input type="button" name="fermer" value="fermer" id="fermer"></div>
+
+
 
 <script type="text/javascript">
 //On initialise les valeurs de base
@@ -141,19 +148,35 @@ $(document).ready(function(){
             console.log(data);
             $("#result").text(data);
           }
-        );
-    });
-    
-    $(document).on("click",".case",function(){
+        );   
             $(".popup").css({'opacity':'100',"z-index":"1"});
+            $(".popup-admin").css({'opacity':'0',"z-index":"0"});
             $(".case").css({"z-index":"0"});
+    });
 
-      });
-     $(document).on("click",".fermer",function(){
+     $(document).on("click","#fermer",function(){
             $(".popup").css({'opacity':'0',"z-index":"0"});
+            $(".popup-admin").css({'opacity':'0',"z-index":"0"});
             $(".case").css({"z-index":"1"});
 
       });
+     $(document).on("click","#admin",function(){
+        $.post(
+            'materiel.php',
+            function(data,status)
+            {
+                $(".popup-admin").html(data)
+            }
+
+
+            )
+        $(".popup-admin").css({'opacity':'100',"z-index":"1"});
+            $(".popup").css({'opacity':'0',"z-index":"0"});
+            $(".case").css({"z-index":"1"});
+
+
+     });
+
 });
 </script>
 
