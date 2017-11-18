@@ -63,7 +63,7 @@ function launch(){
             var d=document.createElement("div");
             var f=document.createElement("div");
             e.setAttribute('class','case');
-            d.setAttribute('class','casenj')
+            d.setAttribute('class','casenj');
             f.setAttribute('class','casem');
            
             e.appendChild(d);
@@ -120,5 +120,29 @@ function reset(){
 }
             
 </script>
+
+<script src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(document).on("click",".case", function(){
+        
+        console.log("ok");
+        $.post(
+            'calendrier.php',
+            {
+                day: $(this).text(),
+                month: mmonth,
+                year: year,
+            },
+          function(data, status)
+          {
+            console.log(data);
+            $("#result").text(data);
+          }
+        );
+    });
+});
+</script>
+
 </body>
 </html>
