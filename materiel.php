@@ -115,6 +115,8 @@
 
  </style>
  <?php 
+	
+
 if (isset($_POST["submit"])) {
  try
 {
@@ -124,24 +126,22 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-$reponse=$id_connex->query('SELECT reference FROM materiel');
+$reponse=$id_connex->exec("INSERT INTO materiel (nom,prenom,groupe,annee) VALUES ('herrgott','julien','TP12','2')");
 
-$nb_mat=$reponse->rowCount();
-if($nb_mat==0){
-    echo "Pas de matériel";
+if($reponse!=1){
+    echo "L'ajout à échoué";
 }
 else{
-    while($ligne=$reponse->fetch(PDO::FETCH_ASSOC))
-    {
-        echo $ligne['reference'];
-    }
+
+        echo "vous êtes enregistrés";
 }
 
 
-$reponse->closeCursor();
 $id_connex=null;
    
 }
+
+
 
 
 
