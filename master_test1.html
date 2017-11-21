@@ -23,8 +23,107 @@
 <div class="popup"><input type="button" name="fermer" value="fermer" id="fermer"> <div id="result"></div></div>
 <div class="popup-admin">
 
+            <legend><h1>Réservation :</h1></legend> 
+         </br>
+             <label for="date-debut"><b>Date de réservation: </b></label> <input type="date" name="date-debut" value=""> au <input type="date" name="date-fin" value="">
+         </br></br>
+             <label for="nom"><b>Nom: </b></label> <input type="text" name="nom" value="">
+         </br></br>
+            <label for="prenom"><b>Prénom: </b></label> <input type="text" name="prenom" value="">
+         </br></br>
+            <label for="groupe"><b>Groupe: </b></label> <select>
+                                                            <option selected="selected" value="null">Groupe</option>
+                                                            <option value="P11">P11</option>
+                                                            <option value="P12">P12</option>
+                                                            <option value="P21">P21</option>
+                                                            <option value="P22">P22</option>
+                                                        </select>
+                                                        <select>
+                                                            <option selected="selected" value="null">Année</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
 
-    <input type="button" name="fermer" value="fermer" id="fermer"></div>
+                                                        </select>
+         </br></br>
+             <b>Matériel: <b> 
+         </br></br>
+         
+         <div class="displaywrap">
+            <div id="choix"><b>Vidéo</b>
+
+                <br>
+                Caméra 1: 
+                    <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                <br>
+                Caméra 2: 
+                    <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+
+            </div>
+            <div id="choix"><b>Audio</b>
+                <br>
+                Micro 1: 
+                <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+                <br>
+                Micro 2: 
+                <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+            </div>
+            <div id="choix"><b>Accesoires</b>
+                <br>
+                Accessoire 1: 
+                <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+                <br>
+                Accessoire 2: 
+                <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+            </div>
+            <div id="choix"><b>Lumières</b>
+                <br>
+                Lumière 1: 
+                <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+                <br>
+                Lumière 2: 
+                <select>
+                        <option selected="selected" value="null">Nombre</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+
+            </div>
+         </div>
+        <input type="button" name="submit" id="submit" value="Valider">
+
+        <input type="button" name="fermer" value="fermer" id="fermer">
+
+</div>
+
+
 
 
 
@@ -161,7 +260,17 @@ $(document).ready(function(){
 
       });
      $(document).on("click","#admin",function(){
-        $.post(
+
+        $(".popup-admin").css({'opacity':'100',"z-index":"1"});
+            $(".popup").css({'opacity':'0',"z-index":"0"});
+            $(".case").css({"z-index":"1"});
+
+
+     });
+
+
+    $(document).on("click","#submit",function(){
+            $.post(
             'materiel.php',
             function(data,status)
             {
@@ -170,12 +279,12 @@ $(document).ready(function(){
 
 
             )
-        $(".popup-admin").css({'opacity':'100',"z-index":"1"});
-            $(".popup").css({'opacity':'0',"z-index":"0"});
-            $(".case").css({"z-index":"1"});
+    });
 
 
-     });
+
+
+
 
 });
 </script>
