@@ -22,7 +22,7 @@
 <input type="button" name="Administration" id="admin" value="Administration">
 <div class="popup"><input type="button" name="fermer" value="fermer" id="fermer"> <div id="result"></div></div>
 <div class="popup-admin">
-
+    <form id="formulaire" onsubmit="">
             <legend><h1>Réservation :</h1></legend> 
          </br>
              <label for="date-debut"><b>Date de réservation: </b></label> <input type="date" name="date-debut" value=""> au <input type="date" name="date-fin" value="">
@@ -117,9 +117,10 @@
 
             </div>
          </div>
-        <input type="button" name="submit" id="submit" value="Valider">
+        <input type="submit" name="submit" id="submit" value="Valider">
 
         <input type="button" name="fermer" value="fermer" id="fermer">
+    </form>
 
 </div>
 
@@ -269,7 +270,7 @@ $(document).ready(function(){
      });
 
 
-    $(document).on("click","#submit",function(){
+    $("#formulaire").submit(function(){
             $.post(
             'materiel.php',
             function(data,status)
