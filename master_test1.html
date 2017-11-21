@@ -22,23 +22,24 @@
 <input type="button" name="Administration" id="admin" value="Administration">
 <div class="popup"><input type="button" name="fermer" value="fermer" id="fermer"> <div id="result"></div></div>
 <div class="popup-admin">
-    <form id="formulaire" onsubmit="">
+
+    <form onsubmit="clickform()">
             <legend><h1>Réservation :</h1></legend> 
          </br>
-             <label for="date-debut"><b>Date de réservation: </b></label> <input type="date" name="date-debut" value=""> au <input type="date" name="date-fin" value="">
+             <label for="date-debut"><b>Date de réservation: </b></label> <input type="date" name="date-debut" value=""> au <input type="date" name="date-retour" value="">
          </br></br>
              <label for="nom"><b>Nom: </b></label> <input type="text" name="nom" value="">
          </br></br>
             <label for="prenom"><b>Prénom: </b></label> <input type="text" name="prenom" value="">
          </br></br>
-            <label for="groupe"><b>Groupe: </b></label> <select>
+            <label for="groupe"><b>Groupe: </b></label> <select name="groupe">
                                                             <option selected="selected" value="null">Groupe</option>
                                                             <option value="P11">P11</option>
                                                             <option value="P12">P12</option>
                                                             <option value="P21">P21</option>
                                                             <option value="P22">P22</option>
                                                         </select>
-                                                        <select>
+                                                        <select name="annee">
                                                             <option selected="selected" value="null">Année</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -236,19 +237,39 @@ $(document).ready(function(){
     $(document).on("click",".case", function(){
         
         console.log("ok");
+        // $.post(
+        //     'calendrier.php',
+        //     {
+        //         day: $(this).text(),
+        //         month: mmonth,
+        //         year: year,
+        //     },
+        //   function(data, status)
+        //   {
+        //     console.log(data);
+        //     $("#result").text(data);
+        //   }
+        // );  
+
         $.post(
-            'calendrier.php',
-            {
-                day: $(this).text(),
-                month: mmonth,
-                year: year,
-            },
-          function(data, status)
-          {
-            console.log(data);
-            $("#result").text(data);
-          }
-        );   
+                'materiel.php',
+                {
+                    date_debut: $("#date_debut").val(),
+                    date_retour: $("#date_retour").val(),
+                    nom: $("#nom").val(),
+                    prenom: $("#prenom").val(),
+                    groupe: $("#groupe").val(),
+                    annee: $("#annee").val(),
+
+                },
+                function(data, status)
+                {
+                    $("#result").text(data);
+                }
+
+
+            );
+
             $(".popup").css({'opacity':'100',"z-index":"1"});
             $(".popup-admin").css({'opacity':'0',"z-index":"0"});
             $(".case").css({"z-index":"0"});
@@ -270,17 +291,25 @@ $(document).ready(function(){
      });
 
 
-    $("#formulaire").submit(function(){
+    function clickform(){
+            console.log("ok");
             $.post(
-            'materiel.php',
-            function(data,status)
-            {
-                $(".popup-admin").html(data)
-            }
+                'materiel.php',{
+                    date_debut: $("#date_debut").val(),
+                    date_retour: $("#date_retour").val(),
+                    nom: $("#nom").val(),
+                    prenom: $("#prenom").val(),
+                    groupe: $("#groupe").val(),
+                    annee: $("#annee").val(),
 
+                },
+                function(data,status)
+                {
+                    $(".popup-admin").html(data);
+                }
 
-            )
-    });
+            );
+    };
 
 
 
