@@ -18,10 +18,10 @@ catch (PDOException $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-$requete="INSERT INTO materiel (nom,prenom,groupe,annee) VALUES ('herrgott','julien','TP12','2')";
+$requete="INSERT INTO materiel (nom, prenom, groupe, annee) VALUES ('herrgott', 'julien', 'TP12', '2')";
 $reponse=$id_connex->exec($requete);
 
-if($reponse!=1){
+if($reponse!=""){
     echo "L'ajout à échoué";
 }
 else{
