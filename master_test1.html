@@ -23,7 +23,6 @@
 <div class="popup"><input type="button" name="fermer" value="fermer" id="fermer"> <div id="result"></div></div>
 <div class="popup-admin">
 
-    <form onsubmit="clickform()">
             <legend><h1>Réservation :</h1></legend> 
          </br>
              <label for="date-debut"><b>Date de réservation: </b></label> <input type="date" name="date-debut" value=""> au <input type="date" name="date-retour" value="">
@@ -118,10 +117,9 @@
 
             </div>
          </div>
-        <input type="submit" name="submit" id="submit" value="Valider">
+        <input type="button" name="submit" id="submit" value="Valider">
 
         <input type="button" name="fermer" value="fermer" id="fermer">
-    </form>
 
 </div>
 
@@ -237,38 +235,20 @@ $(document).ready(function(){
     $(document).on("click",".case", function(){
         
         console.log("ok");
-        // $.post(
-        //     'calendrier.php',
-        //     {
-        //         day: $(this).text(),
-        //         month: mmonth,
-        //         year: year,
-        //     },
-        //   function(data, status)
-        //   {
-        //     console.log(data);
-        //     $("#result").text(data);
-        //   }
-        // );  
+         $.post(
+            'calendrier.php',
+            {
+                 day: $(this).text(),
+                 month: mmonth,
+                 year: year,
+             },
+           function(data, status)
+          {
+            console.log(data);
+             $("#result").text(data);
+        }
+        );  
 
-        $.post(
-                'materiel.php',
-                {
-                    date_debut: $("#date_debut").val(),
-                    date_retour: $("#date_retour").val(),
-                    nom: $("#nom").val(),
-                    prenom: $("#prenom").val(),
-                    groupe: $("#groupe").val(),
-                    annee: $("#annee").val(),
-
-                },
-                function(data, status)
-                {
-                    $("#result").text(data);
-                }
-
-
-            );
 
             $(".popup").css({'opacity':'100',"z-index":"1"});
             $(".popup-admin").css({'opacity':'0',"z-index":"0"});
@@ -291,7 +271,7 @@ $(document).ready(function(){
      });
 
 
-    function clickform(){
+    $(document).on("click","#submit",function(){
             console.log("ok");
             $.post(
                 'materiel.php',{
@@ -309,7 +289,7 @@ $(document).ready(function(){
                 }
 
             );
-    };
+    });
 
 
 
