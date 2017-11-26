@@ -77,5 +77,8 @@ while ($ligne = $reponse-> fetch(PDO::FETCH_ASSOC)){
 
 echo "</div>";
 
+$reponse->closeCursor();
+$id_connex=null;
+
 
 ?>
