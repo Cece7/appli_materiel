@@ -48,8 +48,8 @@
              <b>Matériel: <b> 
          </br></br>
          
-         <div class="displaywrap">
-            <div id="choix"><b>Vidéo</b>
+         <div class="displaywrap" id="affmateriel">
+            <div id="video"><b>Vidéo</b>
 
                 <br>
                 Caméra 1: 
@@ -67,7 +67,7 @@
                     </select>
 
             </div>
-            <div id="choix"><b>Audio</b>
+            <div id="audio"><b>Audio</b>
                 <br>
                 Micro 1: 
                 <select>
@@ -83,7 +83,7 @@
                         <option value="2">2</option>
                 </select>
             </div>
-            <div id="choix"><b>Accesoires</b>
+            <div id="accesoire"><b>Accesoires</b>
                 <br>
                 Accessoire 1: 
                 <select>
@@ -99,7 +99,7 @@
                         <option value="2">2</option>
                 </select>
             </div>
-            <div id="choix"><b>Lumières</b>
+            <div id="lumiere"><b>Lumières</b>
                 <br>
                 Lumière 1: 
                 <select>
@@ -268,11 +268,28 @@ $(document).ready(function(){
             $(".case").css({"z-index":"1"});
 
 
+            console.log("on est là");
+
+        $.post(
+                'recup_matos.php',{
+
+                },
+                function(data,status)
+                {
+                    $("#affmateriel").html(data);
+                }
+
+            );
+
+
+
      });
 
 
     $(document).on("click","#submit",function(){
             console.log("ok");
+
+
 
             $.post(
                 'materiel.php',{
@@ -290,6 +307,7 @@ $(document).ready(function(){
                 }
 
             );
+
     });
 
 
