@@ -45,77 +45,11 @@
 
                                                         </select>
          </br></br>
-             <b>Matériel: <b> 
+             <b>Matériel: </b> 
          </br></br>
          
          <div class="displaywrap" id="affmateriel">
-            <div id="video"><b>Vidéo</b>
-
-                <br>
-                Caméra 1: 
-                    <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                <br>
-                Caméra 2: 
-                    <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-
-            </div>
-            <div id="audio"><b>Audio</b>
-                <br>
-                Micro 1: 
-                <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                </select>
-                <br>
-                Micro 2: 
-                <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                </select>
-            </div>
-            <div id="accesoire"><b>Accesoires</b>
-                <br>
-                Accessoire 1: 
-                <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                </select>
-                <br>
-                Accessoire 2: 
-                <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                </select>
-            </div>
-            <div id="lumiere"><b>Lumières</b>
-                <br>
-                Lumière 1: 
-                <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                </select>
-                <br>
-                Lumière 2: 
-                <select>
-                        <option selected="selected" value="null">Nombre</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                </select>
-
-            </div>
+            
          </div>
         <input type="button" name="submit" id="submit" value="Valider">
 
@@ -268,7 +202,6 @@ $(document).ready(function(){
             $(".case").css({"z-index":"1"});
 
 
-            console.log("on est là");
 
         $.post(
                 'recup_matos.php',{
@@ -288,11 +221,14 @@ $(document).ready(function(){
 
     $(document).on("click","#submit",function(){
             console.log("ok");
+            console.log($("select[value='1'][value='2']").attr("id"))
 
 
 
             $.post(
                 'materiel.php',{
+                    id_materiel: $("#affmateriel select[value='1'][value='2']  option:selected").attr("id"),
+                    nb_mat: $("#affmateriel select[value='1'][value='2']  option:selected").val(),
                     date_debut: $("#date_debut").val(),
                     date_retour: $("#date_retour").val(),
                     nom: $("#nom").val(),

@@ -12,7 +12,7 @@ catch (PDOException $e)
 
 $requete="INSERT INTO etudiant (nom, prenom, groupe, annee) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["groupe"]."', '".$_POST["annee"]."')";
 $reponse=$id_connex->exec($requete);
-$requete="INSERT INTO reserver (date_debut, date_retour) VALUES ('".$_POST["date_debut"]."', '".$_POST["date_retour"]."')";
+$requete="INSERT INTO reserver (id_materiel, date_debut, date_retour) VALUES ('".$_POST["id_materiel"]."', '".$_POST["date_debut"]."', '".$_POST["date_retour"]."')";
 $reponse2=$id_connex->exec($requete);
 
 if($reponse!="" && $reponse2!=""){
