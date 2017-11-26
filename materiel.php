@@ -1,13 +1,5 @@
 <?php 
 	
-echo "lol";
-
-// echo $_POST["date_debut"]." / ";
-// echo $_POST["date retour"]." / ";
-// echo $_POST["nom"]." / ";
-// echo $_POST["prenom"]." / ";
-// echo $_POST["groupe"]." / ";
-// echo $_POST["annee"]." ";
 
  try
 {
@@ -18,17 +10,20 @@ catch (PDOException $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-$requete="INSERT INTO materiel (nom, prenom, groupe, annee) VALUES ('herrgott', 'julien', 'TP12', '2')";
+$requete="INSERT INTO etudiant (nom, prenom, groupe, annee) VALUES ('".$_POST["nom"]."', '".$_POST["prenom"]."', '".$_POST["groupe"]."', '".$_POST["annee"]."')";
 $reponse=$id_connex->exec($requete);
+$requete="INSERT INTO reservation (date_debut, date_retour) VALUES ('".$_POST["date_debut"]."', '".$_POST["date_retour"]."')";
+$reponse2=$id_connex->exec($requete);
 
-if($reponse!=""){
-    echo "L'ajout à échoué";
+if($reponse!="" && $reponse2!=""){
+    echo "vous êtes enregistrés";
 }
 else{
 
-    echo "vous êtes enregistrés";
+    echo "L'ajout à échoué";
 }
 
 $id_connex=null;
    
 ?>
+<input type="button" name="fermer" value="fermer" id="fermer">
