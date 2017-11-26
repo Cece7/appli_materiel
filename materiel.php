@@ -16,11 +16,11 @@ $requete="INSERT INTO reserver (id_materiel, date_debut, date_retour) VALUES ('"
 $reponse2=$id_connex->exec($requete);
 
 if($reponse!="" && $reponse2!=""){
-    echo "vous êtes enregistrés";
+    echo "La réservation a bien été pris en compte";
 }
 else{
 
-    echo "L'ajout à échoué";
+    echo "La réservation a échoué";
 }
 
 $id_connex=null;

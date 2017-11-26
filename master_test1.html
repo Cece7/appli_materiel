@@ -53,6 +53,19 @@
          </div>
         <input type="button" name="submit" id="submit" value="Valider">
 
+        <h1>Ajout matériel base de donnée</h1>
+
+        <label for="add_designation"><b>Désignation: </b></label> <input type="text" name="add_designation" id="add_designation" value="">
+        <label for="add_categorie"><b>Catégorie: </b></label> <select name="add_categorie" id="add_categorie">
+                                                            <option value="video">Vidéo</option>
+                                                            <option value="audio">Audio</option>
+                                                            <option value="accesoire">Accesoires</option>
+                                                            <option value="lumiere">Lumières</option>
+                                                        </select>
+
+        <input type="button" name="add_mat" id="add_mat" value="Valider Ajout Matériel">
+
+
         <input type="button" name="fermer" value="fermer" id="fermer">
 
 </div>
@@ -236,6 +249,23 @@ $(document).ready(function(){
                     groupe: $("#groupe").val(),
                     annee: $("#annee").val(),
 
+                },
+                function(data,status)
+                {
+                    $(".popup-admin").html(data);
+                }
+
+            );
+
+    });
+
+
+    $(document).on("click","#add_mat",function(){
+            $.post(
+                'add_mat.php',{
+                    designation: $("#add_designation").val(),
+                    categorie: $("#add_categorie").val(),
+                    
                 },
                 function(data,status)
                 {
