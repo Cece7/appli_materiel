@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 26 Novembre 2017 à 16:26
+-- Généré le :  Lun 27 Novembre 2017 à 10:33
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -27,13 +27,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `etudiant` (
-  `id_etudiant` int(11) NOT NULL,
+  `id_etudiant` int(11) NOT NULL AUTO_INCREMENT,
   `nom` text NOT NULL,
   `prenom` text NOT NULL,
-  `groupe` int(11) NOT NULL,
-  `annee` int(11) NOT NULL,
+  `groupe` text NOT NULL,
+  `annee` text NOT NULL,
   PRIMARY KEY (`id_etudiant`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `etudiant`
+--
+
+INSERT INTO `etudiant` (`id_etudiant`, `nom`, `prenom`, `groupe`, `annee`) VALUES
+(1, 'Herrgott', 'Julien', '0', '1'),
+(2, 'Ferrandez', 'Audrey', 'P12', '1');
 
 -- --------------------------------------------------------
 
@@ -42,11 +50,11 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
 --
 
 CREATE TABLE IF NOT EXISTS `materiel` (
-  `id_materiel` int(11) NOT NULL,
+  `id_materiel` int(11) NOT NULL AUTO_INCREMENT,
   `designation` text NOT NULL,
   `categorie` text NOT NULL,
   PRIMARY KEY (`id_materiel`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Contenu de la table `materiel`
@@ -79,7 +87,9 @@ INSERT INTO `materiel` (`id_materiel`, `designation`, `categorie`) VALUES
 (24, 'zoom mp3', 'audio'),
 (25, 'zoom mp3', 'audio'),
 (26, 'reflecteur', 'eclairage'),
-(27, 'reflecteur', 'eclairage');
+(27, 'reflecteur', 'eclairage'),
+(28, 'Caméra Linux', 'video'),
+(29, 'Spot LCD', 'lumiere');
 
 -- --------------------------------------------------------
 
@@ -90,11 +100,19 @@ INSERT INTO `materiel` (`id_materiel`, `designation`, `categorie`) VALUES
 CREATE TABLE IF NOT EXISTS `reserver` (
   `id_materiel` int(11) NOT NULL,
   `id_etudiant` int(11) NOT NULL,
-  `id_reserver` int(11) NOT NULL,
+  `id_reserver` int(11) NOT NULL AUTO_INCREMENT,
   `date_debut` date NOT NULL,
   `date_retour` date NOT NULL,
   PRIMARY KEY (`id_reserver`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `reserver`
+--
+
+INSERT INTO `reserver` (`id_materiel`, `id_etudiant`, `id_reserver`, `date_debut`, `date_retour`) VALUES
+(0, 0, 1, '2017-11-02', '2017-11-16'),
+(0, 0, 2, '2017-11-02', '2017-11-16');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
