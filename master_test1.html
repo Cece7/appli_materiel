@@ -51,7 +51,14 @@
          <div class="displaywrap" id="affmateriel">
             
          </div>
+         <div id="popup-admin-result">
+
+         </div>
         <input type="button" name="submit" id="submit" value="Valider">
+
+
+
+
 
         <h1>Ajout matériel base de donnée</h1>
 
@@ -232,15 +239,16 @@ $(document).ready(function(){
      });
 
 
-    $(document).on("click","#submit",function(){
-            console.log("ok");
-            console.log($("select[value='1'][value='2']").attr("id"))
 
 
+    $("select").select(function() {
+                
+                console.log("select activer");
 
-            $.post(
+                $.post(
                 'materiel.php',{
-                    id_materiel: $("#affmateriel select[value='1'][value='2']  option:selected").attr("id"),
+                    quantite_reserver: $(this).val(),
+                    id_materiel: $(this).attr("id"),
                     nb_mat: $("#affmateriel select[value='1'][value='2']  option:selected").val(),
                     date_debut: $("#date_debut").val(),
                     date_retour: $("#date_retour").val(),
@@ -252,12 +260,12 @@ $(document).ready(function(){
                 },
                 function(data,status)
                 {
-                    $(".popup-admin").html(data);
+                    $("#popup-admin-result").html(data);
                 }
 
-            );
-
+                );
     });
+
 
 
     $(document).on("click","#add_mat",function(){
