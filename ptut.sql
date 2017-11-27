@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 27 Novembre 2017 à 10:33
+-- Généré le :  Lun 27 Novembre 2017 à 11:19
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -53,43 +53,45 @@ CREATE TABLE IF NOT EXISTS `materiel` (
   `id_materiel` int(11) NOT NULL AUTO_INCREMENT,
   `designation` text NOT NULL,
   `categorie` text NOT NULL,
+  `quantite_total` int(11) NOT NULL,
   PRIMARY KEY (`id_materiel`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Contenu de la table `materiel`
 --
 
-INSERT INTO `materiel` (`id_materiel`, `designation`, `categorie`) VALUES
-(1, 'camera reflex', 'video'),
-(2, 'camera reflex', 'video'),
-(3, 'camera epaule', 'video'),
-(4, 'camera epaule', 'video'),
-(5, 'camera poing', 'video'),
-(6, 'camera poing', 'video'),
-(7, 'camera poing', 'video'),
-(8, 'camera poing', 'video'),
-(9, 'camera poing', 'video'),
-(10, 'camera poing', 'video'),
-(11, 'micro filaires', 'audio'),
-(12, 'micro filaires', 'audio'),
-(13, 'micro filaires', 'audio'),
-(14, 'casques audio', 'audio'),
-(15, 'casques audio', 'audio'),
-(16, 'casques audio', 'audio'),
-(17, 'casques audio', 'audio'),
-(18, 'casques audio', 'audio'),
-(19, 'micro cravate', 'audio'),
-(20, 'micro cravate', 'audio'),
-(21, 'micro cravate', 'audio'),
-(22, 'zoom mp3', 'audio'),
-(23, 'zoom mp3', 'audio'),
-(24, 'zoom mp3', 'audio'),
-(25, 'zoom mp3', 'audio'),
-(26, 'reflecteur', 'eclairage'),
-(27, 'reflecteur', 'eclairage'),
-(28, 'Caméra Linux', 'video'),
-(29, 'Spot LCD', 'lumiere');
+INSERT INTO `materiel` (`id_materiel`, `designation`, `categorie`, `quantite_total`) VALUES
+(1, 'camera reflex', 'video', 0),
+(2, 'camera reflex', 'video', 0),
+(3, 'camera epaule', 'video', 0),
+(4, 'camera epaule', 'video', 0),
+(5, 'camera poing', 'video', 0),
+(6, 'camera poing', 'video', 0),
+(7, 'camera poing', 'video', 0),
+(8, 'camera poing', 'video', 0),
+(9, 'camera poing', 'video', 0),
+(10, 'camera poing', 'video', 0),
+(11, 'micro filaires', 'audio', 0),
+(12, 'micro filaires', 'audio', 0),
+(13, 'micro filaires', 'audio', 0),
+(14, 'casques audio', 'audio', 0),
+(15, 'casques audio', 'audio', 0),
+(16, 'casques audio', 'audio', 0),
+(17, 'casques audio', 'audio', 0),
+(18, 'casques audio', 'audio', 0),
+(19, 'micro cravate', 'audio', 0),
+(20, 'micro cravate', 'audio', 0),
+(21, 'micro cravate', 'audio', 0),
+(22, 'zoom mp3', 'audio', 0),
+(23, 'zoom mp3', 'audio', 0),
+(24, 'zoom mp3', 'audio', 0),
+(25, 'zoom mp3', 'audio', 0),
+(26, 'reflecteur', 'eclairage', 0),
+(27, 'reflecteur', 'eclairage', 0),
+(28, 'Caméra Linux', 'video', 0),
+(29, 'Spot LCD', 'lumiere', 0),
+(30, 'Perche', 'accesoire', 0);
 
 -- --------------------------------------------------------
 
@@ -103,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `reserver` (
   `id_reserver` int(11) NOT NULL AUTO_INCREMENT,
   `date_debut` date NOT NULL,
   `date_retour` date NOT NULL,
+  `quantite_reserver` int(11) NOT NULL,
   PRIMARY KEY (`id_reserver`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -110,9 +113,9 @@ CREATE TABLE IF NOT EXISTS `reserver` (
 -- Contenu de la table `reserver`
 --
 
-INSERT INTO `reserver` (`id_materiel`, `id_etudiant`, `id_reserver`, `date_debut`, `date_retour`) VALUES
-(0, 0, 1, '2017-11-02', '2017-11-16'),
-(0, 0, 2, '2017-11-02', '2017-11-16');
+INSERT INTO `reserver` (`id_materiel`, `id_etudiant`, `id_reserver`, `date_debut`, `date_retour`, `quantite_reserver`) VALUES
+(0, 0, 1, '2017-11-02', '2017-11-16', 0),
+(0, 0, 2, '2017-11-02', '2017-11-16', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
